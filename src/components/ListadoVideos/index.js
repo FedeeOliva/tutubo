@@ -1,0 +1,47 @@
+import React, {useEffect, useCallback} from 'react';
+import {ContenedorVideos} from './style';
+import Video from '../Video';
+import useVideos from '../../hooks/useVideos';
+import useObserver from '../../hooks/useObserver';
+import debounce from 'just-debounce-it';
+
+
+const ListadoVideos = ({keyword, setListaRep}) => {
+    
+    const [videos, nextPage] = useVideos(keyword);
+    const debounceNextPage = useCallback( debounce( () =>{
+        nextPage(prev => prev+1); 
+    } ,200),[nextPage]);// eslint-disable-line
+
+    const options = {
+        rootMargin: '100px',      
+    }
+    const [isNearScreen, visor] = useObserver(options);  
+
+    
+    useEffect(() =>{
+        if(isNearScreen){
+            console.log('True');
+            //debounceNextPage();
+        }
+    },[debounceNextPage,isNearScreen]);    
+
+  return (
+    <>
+    <ContenedorVideos>
+    	{videos.map(video => (                   
+        <Video
+            key = {video.id.videoId}                       	
+            video = {video}
+            setListaRep = {setListaRep}
+        />  
+                     
+        ))}      
+    </ContenedorVideos>
+    <div ref={visor}></div>
+    
+    </>
+  )
+}
+
+export default ListadoVideos;
