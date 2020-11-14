@@ -7,22 +7,17 @@ import {Grid,ContainerMain} from './style';
 const Page = (props) => {
 
 	const [keyword, setKeyword] = useState("");
-    const [listaRep, setListaRep] = useState([]);
 
   return (
     <Grid>        
         <Navbar
         	setKeyword={setKeyword}
         />
-        <ContainerMain>
+        <ContainerMain as="main">
         	<ListadoVideos
         		keyword={keyword}
-                setListaRep={setListaRep}
         	/>
-        	<Reproductor
-                listaRep={listaRep}
-                setListaRep={setListaRep}
-            />    	
+        	<Reproductor/>    	
         </ContainerMain>
     </Grid>
   )

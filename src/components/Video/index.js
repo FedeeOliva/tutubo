@@ -1,9 +1,11 @@
-import React from 'react';
-/*import {Card, CardBody} from './style';*/
+import React,{useContext} from 'react';
+import {ReproductorContext} from '../../context/ReproductorContext';
 import * as Card from './style.js';
 import moment from 'moment';
 
-const Video = ({video, setListaRep}) => {
+const Video = ({video}) => {
+
+	const {agregarALista} = useContext(ReproductorContext);
 
 	const {title, channelTitle, thumbnails} = video.snippet;
 	const fecha = moment(video.snippet.publishTime).fromNow();	
@@ -11,7 +13,7 @@ const Video = ({video, setListaRep}) => {
 
 	return (
 			<Card.Contenedor
-				onClick = {() => agregarALista(video)}   
+				  onClick = {() => agregarALista(video)} 
 				>
 				<Card.Img src={thumbnails.default.url}
 					alt=""

@@ -9,9 +9,11 @@ import debounce from 'just-debounce-it';
 const ListadoVideos = ({keyword, setListaRep}) => {
     
     const [videos, nextPage] = useVideos(keyword);
+    // eslint-disable-next-line
     const debounceNextPage = useCallback( debounce( () =>{
         nextPage(prev => prev+1); 
-    } ,200),[nextPage]);// eslint-disable-line
+   
+    } ,200),[nextPage]);
 
     const options = {
         rootMargin: '100px',      
@@ -21,7 +23,6 @@ const ListadoVideos = ({keyword, setListaRep}) => {
     
     useEffect(() =>{
         if(isNearScreen){
-            console.log('True');
             //debounceNextPage();
         }
     },[debounceNextPage,isNearScreen]);    

@@ -1,34 +1,54 @@
-import React, {createContext, useState, useEffect} from 'react';
+import React, {useState, useEffect, createContext} from 'react';
 
 export const ReproductorContext = createContext();
 
 const ReproductorProvider = (props) =>{
 
-	const[videoEnRep, setVideoEnRep] = useState(null);
+	const[videoEnRep, setVideoEnRep] = useState(false);
 	const[listaRep, setListaRep] = useState([]);
 
+	useEffect(()=>{
+		if(listaRep.length === 0){
+			setVideoEnRep(false);
+		}
+	},[listaRep]);
+
 	const agregarALista = video =>{
-		if(!listaRep.includes(video)){
+		if(!videoEnRep) reproducirVideo(video);
+		if(!listaRep.find(el => el.id.videoId === video.id.videoId)){
 			setListaRep([...listaRep, video]);
 		}		
 	}
 
 	const siguienteVideo = () =>{
-
+		const indexActual = listaRep.findIndex(el => el.id.videoId === videoEnRep.id.videoId);
+		if(listaRep[indexActual+1]){
+			setVideoEnRep(listaRep[indexActual+1]);
+		}else{
+			setVideoEnRep(listaRep[0]);
+		}
 	}
 	const reproducirVideo = video =>{
 		setVideoEnRep(video);
 	}
 
-	const eliminarVideo = () =>{
-
+	const eliminarVideo = async video =>{
+		if(videoEnRep.id.videoId === video.id.videoId){
+			await siguienteVideo();		
+		}
+		setListaRep([...listaRep.filter(el => el !== video)]);
 	}
 
 	return(
 		<ReproductorContext.Provider
 			value={{
-				videoEnRep,
-				listaRep,
+				videoEnRep: videoEnRep,
+				listaRep: listaRep,
+				agregarALista,
+				reproducirVideo,
+				eliminarVideo,
+				siguienteVideo,
+				setListaRep
 			}}
 		>
 			{props.children}
@@ -36,4 +56,4 @@ const ReproductorProvider = (props) =>{
 	);
 }
 
-export default RecetasProvider;
+export default ReproductorProvider;

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Rep = styled.div`
+export const Rep = styled.section`
 	width: 100%;
 	height: 100vh;
 	display: flex;
@@ -10,7 +10,10 @@ export const Rep = styled.div`
 	left: 0;
 
 	${ ({theme}) => theme.breakpoint.desktop}{
-		position: static;		
+		position: static;
+		grid-row:1;
+		grid-column: 2;
+		height: calc(100vh - ${ ({theme}) => theme.navbarHeight});		
 	}
 `;
 

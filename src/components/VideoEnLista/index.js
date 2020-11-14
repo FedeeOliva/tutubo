@@ -1,21 +1,29 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {ReproductorContext} from '../../context/ReproductorContext';
 import {Card, Body, Title, Subtitle, Img, Eliminar} from './style';
 
-const VideoEnLista = ({video, setReproducirVideo, setListaRep}) => {
-	const {title, channelTitle, thumbnails} = video.snippet;
+const VideoEnLista = ({video}) => {
+	const {reproducirVideo, eliminarVideo} = useContext(ReproductorContext);
 
-	const reproducirVideo = () =>{
-		setReproducirVideo(video);
-	}
+	const {title, channelTitle, thumbnails} = video.snippet;	
 
-	const eliminarVideo = e =>{
+	const handleEliminar = e =>{
 		e.stopPropagation();
-		setListaRep(videos => [...videos.filter(el => el !== video)]);
+		eliminarVideo(video);
 	}
- 	
+	const handleDragStart = e => {
+		e.dataTransfer.setData("text", video.id.videoId);
+		e.currentTarget.style.opacity = '0.5';
+	}
+
+	const handleDragEnd = e => {
+		e.currentTarget.style.opacity = '1';
+ 	}
 	return (
 		<Card
-			onClick = {reproducirVideo}
+			onClick = {() => reproducirVideo(video)}
+			onDragStart = {handleDragStart}
+			onDragEnd = {handleDragEnd}
 			>
 			<Img src={thumbnails.default.url}/>
 			<Body>
@@ -27,7 +35,7 @@ const VideoEnLista = ({video, setReproducirVideo, setListaRep}) => {
 				</Subtitle>
 			</Body>
 			<Eliminar
-				onClick = {eliminarVideo}
+				onClick = {handleEliminar}
 				>
 				<i className="far fa-times-circle"></i>
 			</Eliminar>

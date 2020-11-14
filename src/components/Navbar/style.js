@@ -7,6 +7,10 @@ export const Navbar = styled.nav`
 	height: ${ ({theme}) => theme.navbarHeight};
 	position: fixed;
 	width: 100%;
+
+	${ ({theme}) => theme.breakpoint.desktop}{
+		z-index: 1000;
+	}
 `;
 
 export const NavbarContainer = styled(Container)`

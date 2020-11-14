@@ -11,6 +11,13 @@ export const ListaReproduccion = styled.div`
 		width: inherit;
 		padding: 0;
 	}
+	${ ({theme}) => theme.breakpoint.desktop}{		
+		scrollbar-width: thin;
+		scrollbar-color: black grey;
+		&::-webkit-scrollbar{
+			display: none;
+		}
+	}
 `;
 
 export const Title = styled.h2`

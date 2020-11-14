@@ -6,11 +6,12 @@ import ReproductorProvider from './context/ReproductorContext';
 
 function App() {
   return (
-  	<ReproductorProvider>
-	    <ThemeProvider theme={theme}>
-	      <Page/>
-	    </ThemeProvider>  		
-  	</ReproductorProvider>
+	<ThemeProvider theme={theme}>
+	    <ReproductorProvider>
+	        <Page/>
+	    </ReproductorProvider>
+	</ThemeProvider>  		
+  	
   );
 }
 

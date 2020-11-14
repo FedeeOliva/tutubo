@@ -13,6 +13,12 @@ export const ContenedorVideos = styled(Container)`
 	}
 
 	${ ({theme}) => theme.breakpoint.desktop}{
-		padding-top: ${ ({theme}) => theme.navbarHeight};
+		padding-top: 0;		
+		overflow: auto;
+		scrollbar-width: thin;
+		scrollbar-color: black grey;
+		&::-webkit-scrollbar{
+			display: none;
+		}
 	}
 `;
