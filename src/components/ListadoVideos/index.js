@@ -15,14 +15,13 @@ const ListadoVideos = ({keyword, setListaRep}) => {
     } ,200),[nextPage]);
 
     const options = {        
-        rootMargin: '100px',      
+        rootMargin: '10px',      
     }
     const [isNearScreen, visor] = useObserver(options);  
 
     
     useEffect(() =>{
         if(isNearScreen){
-            console.log('intercept');
             debounceNextPage();
         }
     },[debounceNextPage,isNearScreen]);    

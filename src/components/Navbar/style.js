@@ -48,9 +48,14 @@ export const NavbarBrand = styled.a`
 `;
 export const Form = styled.form`
 	align-items: center;
-	border: 1px solid #323232;	
+	display: flex;
+	justify-content: center;
+	width:100%;
+	height: inherit;
+	background: #202020;	
 	position: absolute;
-	right: 0px;
+	top: -100%;
+	left: 0px;
 	margin-right: 1em; /* 20/16 */
 
 	${ ({theme}) => theme.breakpoint.desktop}{
@@ -60,9 +65,20 @@ export const Form = styled.form`
 		right: auto;
 		transform: translate(-50%,-50%);
 		height: 30px;
+		width: auto;
 	}
 `;
 
+export const InputGroup = styled.fieldset`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border: 1px solid #323232;	
+	padding: 0;
+	${ ({theme}) => theme.breakpoint.desktop}{
+		height: inherit;
+	}
+`;
 export const FormInput = styled.input`
 	background: #121212;
 	border: none;
@@ -71,14 +87,9 @@ export const FormInput = styled.input`
 	height: 30px;
 	margin: 0;
 	padding-left: 5px;
-	width: 60px;
+	width: 80vw;
 	transition: all .55s ease;
 	cursor: pointer;
-
-	&:focus{
-		width: calc(100vw - 35px);
-		cursor: text;
-	}
 
 	&::placeholder{
 		color: #818181;
@@ -116,3 +127,17 @@ export const Submit = styled.button`
 	}
 
 `;
+
+export const BtnCerrar = styled.button`
+	background: none;
+	border: none;
+	color: white;
+	font-size: 1.2em;
+	cursor: pointer;
+
+	${ ({theme}) => theme.breakpoint.desktop}{
+		display: none;
+	}
+`;
+
+export const BtnAbrir = styled(BtnCerrar)``;
