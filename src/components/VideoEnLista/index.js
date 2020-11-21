@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {ReproductorContext} from '../../context/ReproductorContext';
-import {Card, Body, Title, Subtitle, Img, Eliminar} from './style';
+import {Card, Body, Title, Subtitle, Img, Eliminar, Barras} from './style';
 
 const VideoEnLista = ({video}) => {
 	const {reproducirVideo, eliminarVideo} = useContext(ReproductorContext);
@@ -13,7 +13,7 @@ const VideoEnLista = ({video}) => {
 	}
 	const handleDragStart = e => {
 		e.dataTransfer.setData("text", video.id.videoId);
-		e.currentTarget.style.opacity = '0.5';
+		e.currentTarget.style.opacity = '0.5';		
 	}
 
 	const handleDragEnd = e => {
@@ -21,11 +21,14 @@ const VideoEnLista = ({video}) => {
  	}
 	return (
 		<Card
-			onClick = {() => reproducirVideo(video)}
-			onDragStart = {handleDragStart}
-			onDragEnd = {handleDragEnd}
+			onDragStart={handleDragStart}
+			onDragEnd={handleDragEnd}			
+			onClick={() => reproducirVideo(video)}
 			>
-			<Img src={thumbnails.default.url}/>
+			<Barras className="fas fa-bars handleDrag"></Barras>
+			<Img src={thumbnails.default.url}
+				alt={title}
+			/>
 			<Body>
 				<Title>{title}</Title>
 				<Subtitle>

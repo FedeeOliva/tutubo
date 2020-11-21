@@ -18,7 +18,11 @@ const ListaRep = ({setMaximizar}) => {
                 <i className="fas fa-arrow-down"></i>
             </Minimizar>
         </Head>    
-         <ReactSortable tag="ul" list={listaRep} setList={setListaRep} > 
+         <ReactSortable 
+            tag="ul" list={listaRep} 
+            setList={setListaRep} 
+            handle='.handleDrag'
+            > 
         	{listaRep.map( video => (
         		<VideoEnLista as='li'
         			key={video.id.videoId}

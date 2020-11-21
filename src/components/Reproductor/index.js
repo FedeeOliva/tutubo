@@ -4,6 +4,8 @@ import ReactPlayer from 'react-player';
 import {Rep} from './style';
 import ListaRep from '../ListaRep';
 import {RepMinimizado, Maximizar,Title,RepContainer} from './style';
+
+
 const Reproductor = (props) => {
 
   const {videoEnRep,listaRep,siguienteVideo} = useContext(ReproductorContext);
@@ -22,13 +24,19 @@ const Reproductor = (props) => {
       indexActual: (actual+1)
     });
   }, [listaRep, videoEnRep]);
+  
+  useEffect(()=>{
+    if(window.matchMedia("(min-width: 62em)").matches){
+      setMaximizar(true);      
+    }
+  },[]);
 
-
-  if(!videoEnRep) return null;
+  //if(!videoEnRep) return null;
 
   return (    
     <>
       <Rep style={ maximizar? null : hide}>
+        {videoEnRep?
         <RepContainer>
         	<ReactPlayer
         		url={`https://www.youtube.com/watch?v=${videoEnRep.id.videoId}`}
@@ -40,6 +48,8 @@ const Reproductor = (props) => {
             onEnded={siguienteVideo}
           />
         </RepContainer>
+          : null
+         }
       	<ListaRep
           setMaximizar={setMaximizar}
         />

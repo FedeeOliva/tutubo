@@ -5,7 +5,6 @@ import useVideos from '../../hooks/useVideos';
 import useObserver from '../../hooks/useObserver';
 import debounce from 'just-debounce-it';
 
-
 const ListadoVideos = ({keyword, setListaRep}) => {
     
     const [videos, nextPage] = useVideos(keyword);
@@ -15,7 +14,7 @@ const ListadoVideos = ({keyword, setListaRep}) => {
    
     } ,200),[nextPage]);
 
-    const options = {
+    const options = {        
         rootMargin: '100px',      
     }
     const [isNearScreen, visor] = useObserver(options);  
@@ -23,7 +22,8 @@ const ListadoVideos = ({keyword, setListaRep}) => {
     
     useEffect(() =>{
         if(isNearScreen){
-            //debounceNextPage();
+            console.log('intercept');
+            debounceNextPage();
         }
     },[debounceNextPage,isNearScreen]);    
 
@@ -38,8 +38,9 @@ const ListadoVideos = ({keyword, setListaRep}) => {
         />  
                      
         ))}      
+        <div ref={visor}></div>
     </ContenedorVideos>
-    <div ref={visor}></div>
+   
     
     </>
   )

@@ -62,3 +62,12 @@ export const Eliminar = styled.button`
 		}
 	
 `
+export const Barras = styled.i`
+	align-items: center;
+	color: ${ ({theme}) => theme.colors.text};
+	display: flex;
+	font-size: 1.6em;
+	height: 100%;
+	padding: 0 0.2em;
+	cursor: move;
+`;

@@ -16,7 +16,7 @@ const Video = ({video}) => {
 				  onClick = {() => agregarALista(video)} 
 				>
 				<Card.Img src={thumbnails.default.url}
-					alt=""
+					alt={title}
 					draggable="false"
 				/>		
 				<Card.Body>

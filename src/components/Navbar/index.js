@@ -32,6 +32,7 @@ const NavbarComponent = ({setKeyword}) => {
 	                onChange={handleChange}
 	                value={search}
 	            />
+	            
 	            <Submit type="submit">
 	                <i className="fas fa-search"></i>
 	            </Submit>

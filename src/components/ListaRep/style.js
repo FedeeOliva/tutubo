@@ -34,6 +34,9 @@ export const Minimizar = styled.button`
 	color: ${ ({theme}) => theme.colors.text};
 	cursor: pointer;
 	font-size: 2em;
+	${ ({theme}) => theme.breakpoint.desktop}{
+		display: none;
+	}
 `;
 
 export const Head = styled.div`
