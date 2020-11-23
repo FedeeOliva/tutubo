@@ -1,6 +1,5 @@
-import {apikey} from '../config/apikey';
 const urlBase = `https://www.googleapis.com/youtube/v3/search?
-key=${apikey}&maxResults=12&type=video&part=snippet`
+key=${process.env.REACT_APP_APIKEY}&maxResults=12&type=video&part=snippet`
 
 export const fetchVideos = async (keyword, token='') =>{
 	try{
