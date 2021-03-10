@@ -22,3 +22,11 @@ export const ContenedorVideos = styled(Container)`
 		}
 	}
 `;
+
+export const SpinnerCentered = styled.div`
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 60px;
+`;

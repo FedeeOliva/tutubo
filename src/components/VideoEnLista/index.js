@@ -25,7 +25,7 @@ const VideoEnLista = ({video}) => {
 			onDragEnd={handleDragEnd}			
 			onClick={() => reproducirVideo(video)}
 			>
-			<Barras className="fas fa-bars handleDrag"></Barras>
+			<Barras className="fas fa-grip-lines handleDrag"></Barras>
 			<Img src={thumbnails.default.url}
 				alt={title}
 			/>

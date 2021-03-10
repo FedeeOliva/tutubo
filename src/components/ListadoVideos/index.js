@@ -1,9 +1,10 @@
 import React, {useEffect, useCallback} from 'react';
-import {ContenedorVideos} from './style';
+import {ContenedorVideos, SpinnerCentered} from './style';
 import Video from '../Video';
 import useVideos from '../../hooks/useVideos';
 import useObserver from '../../hooks/useObserver';
 import debounce from 'just-debounce-it';
+import Spinner from '../Spinner';
 
 const ListadoVideos = ({keyword, setListaRep}) => {
     
@@ -22,7 +23,7 @@ const ListadoVideos = ({keyword, setListaRep}) => {
     
     useEffect(() =>{
         if(isNearScreen){
-            debounceNextPage();
+           debounceNextPage();
         }
     },[debounceNextPage,isNearScreen]);    
 
@@ -38,9 +39,12 @@ const ListadoVideos = ({keyword, setListaRep}) => {
                      
         ))}      
         <div ref={visor}></div>
+        <SpinnerCentered>
+            <Spinner/>
+        </SpinnerCentered>        
     </ContenedorVideos>
    
-    
+
     </>
   )
 }

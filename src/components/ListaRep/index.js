@@ -17,7 +17,8 @@ const ListaRep = ({setMaximizar}) => {
                 >
                 <i className="fas fa-arrow-down"></i>
             </Minimizar>
-        </Head>    
+        </Head>   
+
          <ReactSortable 
             tag="ul" list={listaRep} 
             setList={setListaRep} 
