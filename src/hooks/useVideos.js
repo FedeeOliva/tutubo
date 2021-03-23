@@ -5,10 +5,10 @@ import {unrepeated} from '../helpers/unrepeated';
 const useVideos = (keyword) => {
 	const [videos, setVideos] = useState([]);
   	const [nextToken, setToken] = useState('');
-  	const [page , nextPage] = useState(1);	
+  	const [page , setPage] = useState(1);	
 
 	useEffect(()=>{
-		nextPage(1);
+		setPage(1);
 		setVideos([]);
 		fetchVideos(keyword)
 		.then( res => {	
@@ -28,8 +28,11 @@ const useVideos = (keyword) => {
 	// eslint-disable-next-line
 	},[page]);
 
-	return [videos,nextPage];
+	const nextPage = () => {
+		setPage(page => page + 1);
+	}
 
+	return [videos,nextPage];
 }
 
 export default useVideos;

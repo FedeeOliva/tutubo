@@ -11,7 +11,7 @@ const ListadoVideos = ({keyword, setListaRep}) => {
     const [videos, nextPage] = useVideos(keyword);
     // eslint-disable-next-line
     const debounceNextPage = useCallback( debounce( () =>{
-        nextPage(prev => prev+1); 
+        nextPage(); 
    
     } ,200),[nextPage]);
 
