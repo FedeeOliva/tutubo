@@ -6,7 +6,9 @@ const useVideos = (keyword) => {
 	const [videos, setVideos] = useState([]);
   	const [nextToken, setToken] = useState('');
   	const [page , setPage] = useState(1);
-  	const [isLoading, setIsLoading] = useState(false);	
+  	const [isLoading, setIsLoading] = useState(false);
+  	const [error, setError] = useState(false);
+
 
 	useEffect(()=>{
 		setPage(1);
@@ -14,11 +16,13 @@ const useVideos = (keyword) => {
 		setIsLoading(true);
 		fetchVideos(keyword)
 		.then( res => {	
+			if(res.error) setError(res.error.message); 
 			setVideos(res.items);
 			setToken(res.nextPageToken);
 			setIsLoading(false);
 			
 		})
+		.catch( error => console.log('error'));
 	// eslint-disable-next-line	
 	},[keyword]);
 
@@ -36,7 +40,7 @@ const useVideos = (keyword) => {
 	},[page]);
 
 
-	return [videos, setPage , isLoading, nextToken];
+	return [videos, setPage , isLoading, nextToken,error];
 }
 
 export default useVideos;

@@ -8,7 +8,7 @@ import Spinner from '../Spinner';
 
 const ListadoVideos = ({keyword, setListaRep}) => {
     
-    const [videos, setPage, isLoading , nextToken] = useVideos(keyword);
+    const [videos, setPage, isLoading , nextToken, error] = useVideos(keyword);
     // eslint-disable-next-line
     const debounceNextPage = useCallback( debounce( () =>{
         setPage(prev => prev+1); 
@@ -30,7 +30,7 @@ const ListadoVideos = ({keyword, setListaRep}) => {
   return (
     <>
     <ContenedorVideos>
-    	{videos.map(video => (                   
+    	{videos && videos.map(video => (                   
         <Video
             key = {video.id.videoId}                       	
             video = {video}
@@ -40,6 +40,13 @@ const ListadoVideos = ({keyword, setListaRep}) => {
         ))}
         <Info>     
         <div style={{height: '10px', width:'100px'}} ref={visor}></div>
+        {error &&
+            <Alert>
+                <span>
+                   Se ha excedido el numero de peticiones diarias para esta aplicación                   
+                </span>
+            </Alert>
+            }
          {!nextToken && !isLoading &&
             <Alert>
                 <span>

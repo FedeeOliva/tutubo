@@ -9,6 +9,7 @@ export const ContenedorVideos = styled(Container)`
 	padding-bottom: 60px;
 	overflow: auto;
 	max-height: calc(100vh - 60px);
+	width: 100%;
 
 	${ ({theme}) => theme.breakpoint.tablet}{
 	}

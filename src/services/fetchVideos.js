@@ -8,5 +8,6 @@ export const fetchVideos = async (keyword, token='') =>{
 		return resultado;
 	}catch(error){
 		console.log(error);
+		return [];
 	}
 }
