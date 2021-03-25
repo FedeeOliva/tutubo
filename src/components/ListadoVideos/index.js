@@ -1,5 +1,5 @@
 import React, {useEffect, useCallback} from 'react';
-import {ContenedorVideos, SpinnerCentered,Alert} from './style';
+import {ContenedorVideos, SpinnerCentered, Info, Alert} from './style';
 import Video from '../Video';
 import useVideos from '../../hooks/useVideos';
 import useObserver from '../../hooks/useObserver';
@@ -11,13 +11,12 @@ const ListadoVideos = ({keyword, setListaRep}) => {
     const [videos, setPage, isLoading , nextToken] = useVideos(keyword);
     // eslint-disable-next-line
     const debounceNextPage = useCallback( debounce( () =>{
-        console.log('nextPageDebounce')
         setPage(prev => prev+1); 
    
     } ,200),[setPage]);
 
     const options = {        
-        rootMargin: '10px',      
+        rootMargin: '100px',      
     }
     const [isNearScreen, visor] = useObserver(options);  
 
@@ -38,8 +37,9 @@ const ListadoVideos = ({keyword, setListaRep}) => {
             setListaRep = {setListaRep}
         />  
                      
-        ))}      
-        <div ref={visor}></div>
+        ))}
+        <Info>     
+        <div style={{height: '10px', width:'100px'}} ref={visor}></div>
          {!nextToken && !isLoading &&
             <Alert>
                 <span>
@@ -52,7 +52,8 @@ const ListadoVideos = ({keyword, setListaRep}) => {
             <SpinnerCentered>
                 <Spinner/>
             </SpinnerCentered>      
-        }         
+        }
+        </Info>          
     </ContenedorVideos>
        
     </>

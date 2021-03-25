@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 /*CARD*/
 export const Contenedor = styled.div`
-	width: 90%;
+	width: 100%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	margin-top: 15px;
@@ -10,14 +11,7 @@ export const Contenedor = styled.div`
 	&:hover{
 		outline: 1px solid white;
 	}
-	${ ({theme}) => theme.breakpoint.tablet}{
-		width: 200px;	
-		height: 250px;
-	} 
-	${ ({theme}) => theme.breakpoint.desktop}{
-		width: 200px;	
-		height: 250px;
-	}		
+	
 `;
 
 export const Img = styled.img`

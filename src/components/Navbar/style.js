@@ -6,6 +6,7 @@ export const Navbar = styled.nav`
 	background: #202020;	
 	height: ${ ({theme}) => theme.navbarHeight};
 	position: fixed;
+	top: 0;
 	width: 100%;
 
 	${ ({theme}) => theme.breakpoint.desktop}{
