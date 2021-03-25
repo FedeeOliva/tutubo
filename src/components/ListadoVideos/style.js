@@ -28,5 +28,16 @@ export const SpinnerCentered = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding-bottom: 60px;
+	padding-bottom: 100px;
 `;
+
+export const Alert = styled.div`
+	background: #DC3545;
+	width: 80%;
+	margin: auto;
+	padding: 20px;
+	color: white;
+	padding-bottom: 60px;
+	display: flex;
+	justify-content: center;
+`
