@@ -32,9 +32,9 @@ const ReproductorProvider = (props) =>{
 		setVideoEnRep(video);
 	}
 
-	const eliminarVideo = async video =>{
+	const eliminarVideo = video =>{
 		if(videoEnRep.id.videoId === video.id.videoId){
-			await siguienteVideo();		
+			siguienteVideo();		
 		}
 		setListaRep([...listaRep.filter(el => el !== video)]);
 	}
