@@ -6,7 +6,7 @@ import useObserver from '../../hooks/useObserver';
 import debounce from 'just-debounce-it';
 import Spinner from '../Spinner';
 
-const ListadoVideos = ({keyword, setListaRep}) => {
+const ListadoVideos = ({keyword, agregarALista}) => {
     
     const [videos, setPage, isLoading , nextToken, error] = useVideos(keyword);
     // eslint-disable-next-line
@@ -34,7 +34,7 @@ const ListadoVideos = ({keyword, setListaRep}) => {
         <Video
             key = {video.id.videoId}                       	
             video = {video}
-            setListaRep = {setListaRep}
+            agregarALista = {agregarALista}
         />  
                      
         ))}

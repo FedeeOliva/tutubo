@@ -1,12 +1,17 @@
-import React, {useContext} from 'react';
-import {ReproductorContext} from '../../context/ReproductorContext';
+import React from 'react';
 import VideoEnLista from '../VideoEnLista';
 import {ListaReproduccion,Title, Minimizar,Head} from './style';
 import { ReactSortable } from "react-sortablejs";
 
-const ListaRep = ({setMaximizar}) => {
+const ListaRep = (props) => {
 
-    const {listaRep, setListaRep} = useContext(ReproductorContext);    
+    const {setMaximizar,
+        listaReproduccion,
+        setListaReproduccion,
+        eliminarVideo,
+        reproducirVideo} = props;
+
+
   return (
     <ListaReproduccion
         >
@@ -20,14 +25,16 @@ const ListaRep = ({setMaximizar}) => {
         </Head>   
 
          <ReactSortable 
-            tag="ul" list={listaRep} 
-            setList={setListaRep} 
+            tag="ul" list={listaReproduccion} 
+            setList={setListaReproduccion} 
             handle='.handleDrag'
             > 
-        	{listaRep.map( video => (
+        	{listaReproduccion.map( video => (
         		<VideoEnLista as='li'
         			key={video.id.videoId}
         			video = {video}
+                    eliminarVideo={eliminarVideo}
+                    reproducirVideo={reproducirVideo}
         		/>
         	))}
          </ReactSortable>

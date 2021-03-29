@@ -1,29 +1,35 @@
-import React, {useState, useEffect, useContext} from 'react';
-import {ReproductorContext} from '../../context/ReproductorContext';
+import React, {useState, useEffect} from 'react';
 import ReactPlayer from 'react-player';
 import {Rep} from './style';
 import ListaRep from '../ListaRep';
 import {RepMinimizado, Maximizar,Title,RepContainer} from './style';
 
 
-const Reproductor = (props) => {
+const Reproductor = ({reproductorData}) => {
 
-  const {videoEnRep,listaRep,siguienteVideo} = useContext(ReproductorContext);
+  const {videoEnReproduccion,
+        listaReproduccion,
+        siguienteVideo,
+        setListaReproduccion,
+        eliminarVideo,
+        reproducirVideo} = reproductorData
+
   const[maximizar, setMaximizar] = useState(false);
-  const[dataReproductor, setDataReproductor] = useState({
+  const[infoReproductor, setInfoReproductor] = useState({
     longitudLista: 0,
     indexActual: 0 
   });
-  const{longitudLista, indexActual} = dataReproductor;
+
+  const{longitudLista, indexActual} = infoReproductor;
   const hide = {display: 'none'}
 
   useEffect(()=>{
-    const actual = listaRep.findIndex(el => el.id.videoId === videoEnRep.id.videoId);
-    setDataReproductor({
-      longitudLista: listaRep.length,
+    const actual = listaReproduccion.findIndex(el => el.id.videoId === videoEnReproduccion.id.videoId);
+    setInfoReproductor({
+      longitudLista: listaReproduccion.length,
       indexActual: (actual+1)
     });
-  }, [listaRep, videoEnRep]);
+  }, [listaReproduccion, videoEnReproduccion]);
   
   useEffect(()=>{
     if(window.matchMedia("(min-width: 62em)").matches){
@@ -36,10 +42,10 @@ const Reproductor = (props) => {
   return (    
     <>
       <Rep style={ maximizar? null : hide}>
-        {videoEnRep?
+        {videoEnReproduccion?
         <RepContainer>
         	<ReactPlayer
-        		url={`https://www.youtube.com/watch?v=${videoEnRep.id.videoId}`}
+        		url={`https://www.youtube.com/watch?v=${videoEnReproduccion.id.videoId}`}
         		controls={true}
         		width="100%"
             height='100%'
@@ -52,6 +58,10 @@ const Reproductor = (props) => {
          }
       	<ListaRep
           setMaximizar={setMaximizar}
+          listaReproduccion={listaReproduccion}
+          setListaReproduccion={setListaReproduccion}
+          eliminarVideo={eliminarVideo}
+          reproducirVideo={reproducirVideo}
         />
      	</Rep>           
       <RepMinimizado style={ maximizar? hide : null}>

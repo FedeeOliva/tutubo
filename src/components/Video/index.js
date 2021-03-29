@@ -1,11 +1,8 @@
-import React,{useContext} from 'react';
-import {ReproductorContext} from '../../context/ReproductorContext';
+import React from 'react';
 import * as Card from './style.js';
 import moment from 'moment';
 
-const Video = ({video}) => {
-
-	const {agregarALista} = useContext(ReproductorContext);
+const Video = ({video,agregarALista}) => {
 
 	const {title, channelTitle, thumbnails} = video.snippet;
 	const fecha = moment(video.snippet.publishTime).fromNow();	

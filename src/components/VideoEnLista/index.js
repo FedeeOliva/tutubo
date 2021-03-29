@@ -1,10 +1,7 @@
-import React, {useContext} from 'react';
-import {ReproductorContext} from '../../context/ReproductorContext';
+import React from 'react';
 import {Card, Body, Title, Subtitle, Img, Eliminar, Barras} from './style';
 
-const VideoEnLista = ({video}) => {
-	const {reproducirVideo, eliminarVideo} = useContext(ReproductorContext);
-
+const VideoEnLista = ({video, reproducirVideo, eliminarVideo}) => {
 	const {title, channelTitle, thumbnails} = video.snippet;	
 
 	const handleEliminar = e =>{
