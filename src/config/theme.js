@@ -7,7 +7,7 @@ export const theme = {
 	},
 	fontFamily:{
 		Roboto: "'Roboto', sans-serif",
-		Segoe: 'Segoe UI'
+		Segoe: "'Segoe UI', sans-serif"
 	},
 	breakpoint: {
 		tablet: '@media screen and (min-width: 48em)', /* 768/16 */

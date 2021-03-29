@@ -27,7 +27,7 @@ export const Body = styled.div`
 
 export const Title = styled.h3`
 	color: white;
-	font-family: 'Roboto';
+	font-family: 'Roboto', sans-serif;
 	font-size: inherit;
 	display: -webkit-box;
 	text-overflow: ellipsis;	
