@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
+import BtnSwitch from '../BtnSwitch';
 import {Navbar, NavbarBrand, Form,
 NavbarContainer, FormInput, Submit,
 InputGroup,BtnCerrar, BtnAbrir} from './style';
-const NavbarComponent = ({setKeyword}) => {
+const NavbarComponent = ({setKeyword, setTheme}) => {
 
 	const [search, setSearch] = useState('');
 	const [abrir, setAbrir] = useState(false)
@@ -27,7 +28,7 @@ const NavbarComponent = ({setKeyword}) => {
 	        </NavbarBrand>
 	        <Form 
 	        	onSubmit={handleSubmit}
-	        	style={abrir? {top: 0} : null}
+	        	style={abrir? {top: 0, zIndex: 10} : null}
 	        	>
 	        	<BtnCerrar
 	        		onClick={() => setAbrir(false)}
@@ -47,6 +48,9 @@ const NavbarComponent = ({setKeyword}) => {
 		            </Submit>
 	            </InputGroup>
 	        </Form>
+	        <BtnSwitch 
+	        	setTheme={setTheme}
+	        />
 	        <BtnAbrir
 	        	onClick={() => setAbrir(true)}
 	        	>

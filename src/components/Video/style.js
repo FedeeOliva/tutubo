@@ -9,7 +9,7 @@ export const Contenedor = styled.div`
 	cursor: pointer;
 	transition: 0.5s;
 	&:hover{
-		outline: 1px solid white;
+		outline: 1px solid ${ ({theme}) => theme.colors.text};
 	}
 	
 `;
@@ -26,7 +26,7 @@ export const Body = styled.div`
 `;
 
 export const Title = styled.h3`
-	color: white;
+	color: ${ ({theme}) => theme.colors.text};
 	font-family: 'Roboto', sans-serif;
 	font-size: inherit;
 	display: -webkit-box;
@@ -38,7 +38,7 @@ export const Title = styled.h3`
 `;
 
 export const Subtitle = styled.span`
-	color: #aaaaaa;
+	color: ${ ({theme}) => theme.colors.textSecondary};
 	display: block;
 	font-size: 0.9em;
 `;

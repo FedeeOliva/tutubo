@@ -5,7 +5,7 @@ import ListadoVideos from '../ListadoVideos';
 import {Grid,ContainerMain} from './style';
 import useReproductor from '../../hooks/useReproductor';
 
-const Page = (props) => {
+const Page = ({setTheme}) => {
 
 	const [keyword, setKeyword] = useState("");
     const reproductorData = useReproductor();
@@ -16,6 +16,7 @@ const Page = (props) => {
     <Grid>        
         <Navbar
         	setKeyword={setKeyword}
+            setTheme={setTheme}
         />
         <ContainerMain as="main">
         	<ListadoVideos

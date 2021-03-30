@@ -3,11 +3,12 @@ import {Container} from '../Container';
 
 
 export const Navbar = styled.nav`
-	background: #202020;	
+	background: ${ ({theme}) => theme.colors.navbar};	
 	height: ${ ({theme}) => theme.navbarHeight};
 	position: fixed;
 	top: 0;
 	width: 100%;
+	transition: .3s ease all;
 
 	${ ({theme}) => theme.breakpoint.desktop}{
 		z-index: 1000;
@@ -28,7 +29,7 @@ export const NavbarContainer = styled(Container)`
 
 export const NavbarBrand = styled.a`
 	align-items: center;
-	color: white;
+	color:  ${ ({theme}) => theme.colors.text};
 	font-weight: bold;
 	font-size: 1.3rem;
 	font-family: 'Roboto';
@@ -53,11 +54,12 @@ export const Form = styled.form`
 	justify-content: center;
 	width:100%;
 	height: inherit;
-	background: #202020;	
+	background: ${ ({theme}) => theme.colors.background};	
 	position: absolute;
 	top: -100%;
 	left: 0px;
 	margin-right: 1em; /* 20/16 */
+	transition: .3s ease all;
 
 	${ ({theme}) => theme.breakpoint.desktop}{
 		display: flex;		
@@ -74,16 +76,17 @@ export const InputGroup = styled.fieldset`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	border: 1px solid #323232;	
+	border: 1px solid #323232;
+	margin: 0;	
 	padding: 0;
 	${ ({theme}) => theme.breakpoint.desktop}{
 		height: inherit;
 	}
 `;
 export const FormInput = styled.input`
-	background: #121212;
+	background: none;
 	border: none;
-	color: #e2e2e2;
+	color: ${ ({theme}) => theme.colors.text};
 	font-family: 'Roboto';
 	height: 30px;
 	margin: 0;
@@ -132,7 +135,7 @@ export const Submit = styled.button`
 export const BtnCerrar = styled.button`
 	background: none;
 	border: none;
-	color: white;
+	color: ${ ({theme}) => theme.colors.text};
 	font-size: 1.2em;
 	cursor: pointer;
 

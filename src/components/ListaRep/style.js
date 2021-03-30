@@ -21,7 +21,7 @@ export const ListaReproduccion = styled.div`
 `;
 
 export const Title = styled.h2`
-	color: white;
+	color:  ${ ({theme}) => theme.colors.text};
 	text-align: center;
 	margin: 20px 0;
 	width: 100%;

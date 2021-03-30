@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const SpinnerStyle = styled.div`
-	color: official;
+	color: ${ ({theme}) => theme.colors.text};
 	display: inline-block;
 	position: relative;
 	width: 60px;
@@ -22,7 +22,7 @@ const SpinnerStyle = styled.div`
   width: 0.375em; /* 6/16 */
   height: 1.125em; /* 18/16 */
   border-radius: 20%;
-  background: #fff;
+  background: ${ ({theme}) => theme.colors.text};
 }
 & div:nth-child(1) {
   transform: rotate(0deg);

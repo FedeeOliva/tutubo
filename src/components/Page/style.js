@@ -6,6 +6,7 @@ export const Grid = styled.div`
 	min-height: 100vh;
 	background: ${ ({theme}) => theme.colors.background};
 	padding-top:  ${ ({theme}) => theme.navbarHeight};
+	transition: .3s ease all;
 
 	${ ({theme}) => theme.breakpoint.desktop}{
 		max-height: 100vh;
