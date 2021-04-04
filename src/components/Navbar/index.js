@@ -37,13 +37,16 @@ const NavbarComponent = ({setKeyword, setTheme}) => {
 	        	</BtnCerrar>
 	        	<InputGroup>	        		
 		            <FormInput
+		            	data-testid="search-input"
 		               	type="search" 
 		                placeholder="Buscar..." 
 		                name="inputBusqueda"
 		                onChange={handleChange}
 		                value={search}
 		            />		            
-		            <Submit type="submit">
+		            <Submit 
+		            	data-testid="search-submit"
+		            	type="submit">
 		                <i className="fas fa-search"></i>
 		            </Submit>
 	            </InputGroup>

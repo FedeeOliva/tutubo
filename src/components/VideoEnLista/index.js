@@ -21,6 +21,7 @@ const VideoEnLista = ({video, reproducirVideo, eliminarVideo}) => {
 			onDragStart={handleDragStart}
 			onDragEnd={handleDragEnd}			
 			onClick={() => reproducirVideo(video)}
+			data-testid="video-lista"
 			>
 			<Barras className="fas fa-grip-lines handleDrag"></Barras>
 			<Img src={thumbnails.default.url}
@@ -36,6 +37,7 @@ const VideoEnLista = ({video, reproducirVideo, eliminarVideo}) => {
 			</Body>
 			<Eliminar
 				onClick = {handleEliminar}
+				data-testid="eliminar-video-lista"
 				>
 				<i className="far fa-times-circle"></i>
 			</Eliminar>

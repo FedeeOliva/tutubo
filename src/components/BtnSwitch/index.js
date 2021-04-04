@@ -12,7 +12,9 @@ const BtnSwitch = ({setTheme}) => {
   return (
     <Button 
     	onClick={() => setActive(!active)}
-    	className={active && 'active'}>    	
+    	className={active && 'active'}
+    	data-testid='switch-theme'
+    	>    	
 		<span><i className="fas fa-sun"></i></span>
 		<span><i className="fas fa-moon"></i></span>		
     </Button>

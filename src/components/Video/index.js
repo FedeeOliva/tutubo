@@ -10,7 +10,8 @@ const Video = ({video,agregarALista}) => {
 
 	return (
 			<Card.Contenedor
-				  onClick = {() => agregarALista(video)} 
+				  onClick = {() => agregarALista(video)}
+				  data-testid='video-card' 
 				>
 				<Card.Img src={thumbnails.medium.url}
 					alt={title}

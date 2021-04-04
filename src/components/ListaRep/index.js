@@ -10,13 +10,11 @@ const ListaRep = (props) => {
         setListaReproduccion,
         eliminarVideo,
         reproducirVideo} = props;
-
-
   return (
     <ListaReproduccion
         >
         <Head>
-            <Title>Lista de Reproduccion</Title> 	
+            <Title data-testid="titulo-reproductor">Lista de Reproduccion</Title> 	
             <Minimizar
                 onClick={() => setMaximizar(false)}
                 >
@@ -28,13 +26,16 @@ const ListaRep = (props) => {
             tag="ul" list={listaReproduccion} 
             setList={setListaReproduccion} 
             handle='.handleDrag'
+            data-testid="lista-reproduccion"
             > 
         	{listaReproduccion.map( video => (
         		<VideoEnLista as='li'
+                    //data-testid="video-lista"
         			key={video.id.videoId}
         			video = {video}
                     eliminarVideo={eliminarVideo}
                     reproducirVideo={reproducirVideo}
+                   
         		/>
         	))}
          </ReactSortable>
