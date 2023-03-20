@@ -5,6 +5,7 @@ NavbarContainer, FormInput, Submit,
 InputGroup,BtnCerrar, BtnAbrir} from './style';
 const NavbarComponent = ({setKeyword, setTheme}) => {
 
+	
 	const [search, setSearch] = useState('');
 	const [abrir, setAbrir] = useState(false)
 
@@ -13,6 +14,7 @@ const NavbarComponent = ({setKeyword, setTheme}) => {
 	}
 	const handleSubmit = e => {
 		e.preventDefault();
+		console.log('HandleSubmit')
 		if( search.trim() === '') return;		
 		setKeyword(search);
 		setSearch('');
@@ -37,15 +39,16 @@ const NavbarComponent = ({setKeyword, setTheme}) => {
 	        	</BtnCerrar>
 	        	<InputGroup>	        		
 		            <FormInput
-		            	data-testid="search-input"
 		               	type="search" 
+						data-testid='inputSearch'
 		                placeholder="Buscar..." 
 		                name="inputBusqueda"
 		                onChange={handleChange}
 		                value={search}
 		            />		            
 		            <Submit 
-		            	data-testid="search-submit"
+		            	aria-label="busqueda"
+						data-testid="search-submit"
 		            	type="submit">
 		                <i className="fas fa-search"></i>
 		            </Submit>
@@ -53,9 +56,11 @@ const NavbarComponent = ({setKeyword, setTheme}) => {
 	        </Form>
 	        <BtnSwitch 
 	        	setTheme={setTheme}
+				aria-label="dark mode"
 	        />
 	        <BtnAbrir
 	        	onClick={() => setAbrir(true)}
+				aria-label="abrir busqueda"
 	        	>
 	        	<i className="fas fa-search"></i>
 	        </BtnAbrir>
