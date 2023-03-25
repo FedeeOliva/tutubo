@@ -1,10 +1,10 @@
-export function unrepeated(arrayUnicos, array){
-    const newArray = arrayUnicos.map(el => el);
+export function unrepeated(prevVideos = [], newVideos = []){
+    const unrepeteadVideos = prevVideos.map(el => el);
 
-    array.forEach(el =>{
-        if(!newArray.find(elem => elem.id.videoId === el.id.videoId)){
-            newArray.push(el);
+    newVideos.forEach(video =>{
+        if(!unrepeteadVideos.find(v => v.id.videoId === video.id.videoId)){
+            unrepeteadVideos.push(video);
         }
     })
-    return newArray;
+    return unrepeteadVideos;
 }

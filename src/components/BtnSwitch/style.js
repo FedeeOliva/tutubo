@@ -45,7 +45,7 @@ export const Button = styled.button`
 		font-size: 0.8em;
 	}
 
-	span:first-child{
+	span:first-of-type{
 		color: orange;
 	}
 `

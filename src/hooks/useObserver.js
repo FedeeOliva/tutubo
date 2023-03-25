@@ -3,7 +3,6 @@ import {useState, useRef, useEffect} from 'react';
 const useObserver = (options = {}) => {
   	
   	const [isNearScreen, setNearScreen] = useState(false);
-  	//const [entries, setEntries] = useState([]); 	
   	const visor = useRef();
 
   	useEffect(()=>{
@@ -19,7 +18,7 @@ const useObserver = (options = {}) => {
 
         observer.observe(visor.current); 
 
-    }); 
+    },[]); 
 
   return [isNearScreen, visor];
 }

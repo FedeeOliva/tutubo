@@ -14,7 +14,6 @@ const NavbarComponent = ({setKeyword, setTheme}) => {
 	}
 	const handleSubmit = e => {
 		e.preventDefault();
-		console.log('HandleSubmit')
 		if( search.trim() === '') return;		
 		setKeyword(search);
 		setSearch('');

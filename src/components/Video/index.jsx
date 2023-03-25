@@ -4,10 +4,9 @@ import moment from 'moment';
 
 const Video = ({video,agregarALista}) => {
 
-	const {title, channelTitle, thumbnails} = video.snippet;
-	const fecha = moment(video.snippet.publishTime).fromNow();	
-
-
+	const {title, channelTitle, thumbnails, publishTime} = video.snippet;
+	const fecha = moment(publishTime).fromNow();	
+	
 	return (
 			<Card.Contenedor
 				  onClick = {() => agregarALista(video)}

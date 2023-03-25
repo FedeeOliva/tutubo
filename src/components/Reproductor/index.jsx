@@ -15,33 +15,19 @@ const Reproductor = ({reproductorData}) => {
         reproducirVideo} = reproductorData
 
   const[maximizar, setMaximizar] = useState(false);
-  const[infoReproductor, setInfoReproductor] = useState({
-    longitudLista: 0,
-    indexActual: 0 
-  });
 
-  const{longitudLista, indexActual} = infoReproductor;
-  const hide = {display: 'none'}
-
-  useEffect(()=>{
-    const actual = listaReproduccion.findIndex(el => el.id.videoId === videoEnReproduccion.id.videoId);
-    setInfoReproductor({
-      longitudLista: listaReproduccion.length,
-      indexActual: (actual+1)
-    });
-  }, [listaReproduccion, videoEnReproduccion]);
-  
+    const indexActual = listaReproduccion.findIndex(el => el.id.videoId === videoEnReproduccion.id.videoId)
+    const longitudLista = listaReproduccion.length
+   
   useEffect(()=>{
     if(window.matchMedia("(min-width: 62em)").matches){
       setMaximizar(true);      
     }
   },[]);
 
-  //if(!videoEnRep) return null;
-
   return (    
     <>
-      <Rep style={ maximizar? null : hide}>
+      <Rep style={ maximizar? null : {display: 'none'}}>
         {videoEnReproduccion?
         <RepContainer>
         	<ReactPlayer
@@ -64,8 +50,8 @@ const Reproductor = ({reproductorData}) => {
           reproducirVideo={reproducirVideo}
         />
      	</Rep>           
-      <RepMinimizado style={ maximizar? hide : null}>
-        <Title>Reproduciendo {indexActual}/{longitudLista}...</Title>
+      <RepMinimizado style={ maximizar? {display: 'none'} : null}>
+        <Title>Reproduciendo {indexActual+1}/{longitudLista}...</Title>
         <Maximizar
           onClick={ () => setMaximizar(true)}
           >
