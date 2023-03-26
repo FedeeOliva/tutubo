@@ -4,26 +4,7 @@ import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
 import NavbarComponent from '../components/Navbar';
 import {themeDark} from '../config/theme';
-import mediaQuery from "css-mediaquery";
 
-// function createMatchMedia(width) {
-//   return (query) => {
-//     return {
-//       matches: mediaQuery.match(query, { width }),
-//       media: "",
-//       addListener: () => {},
-//       removeListener: () => {},
-//       onchange: () => {},
-//       addEventListener: () => {},
-//       removeEventListener: () => {},
-//       dispatchEvent: () => true,
-//     };
-//   };
-// }
-
-// function resizeScreenSize(width) {
-//   window.matchMedia = createMatchMedia(width);
-// }
 
 
 describe('Navbar tests', ()=> {

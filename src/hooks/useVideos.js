@@ -72,7 +72,7 @@ const useVideos = (keyword) => {
     } catch (e) {
       dispatch({
         type: "NEW_SEARCH_FAIL",
-        payload: e,
+        payload: e.message,
       });
     }
   };
@@ -93,7 +93,7 @@ const useVideos = (keyword) => {
     } catch (e) {
       dispatch({
         type: "NEW_PAGE_FAIL",
-        payload: e,
+        payload: e.message,
       });
     }
   };

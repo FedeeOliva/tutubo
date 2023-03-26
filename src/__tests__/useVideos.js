@@ -96,7 +96,7 @@ describe('useVideos test', () => {
         fetchVideos.mockRejectedValue(new Error('Error new search'))
         const {result} =  renderHook(() => useVideos('test')) 
         await waitFor( () => expect(fetchVideos).toHaveBeenCalledTimes(1))
-        expect(result.current.error.message).toBe('Error new search')
+        expect(result.current.error).toBe('Error new search')
         expect(result.current.videos).toHaveLength(0)
     })
 
@@ -111,7 +111,7 @@ describe('useVideos test', () => {
         })
         await waitFor(() => expect(fetchVideos).toHaveBeenCalledTimes(2))
         expect(result.current.videos).toHaveLength(2)   
-        expect(result.current.error.message).toBe('Error get next page')
+        expect(result.current.error).toBe('Error get next page')
     })
 
     test('Shouldn\'t execute fetch again when getNextPage is called if there is not next token', async () => {
