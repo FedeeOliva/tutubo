@@ -1,6 +1,5 @@
 export const getEnviroments = () =>{
-    import.meta.env;
     return {
-        ...import.meta.env
+        VITE_API_KEY: import.meta.env.VITE_API_KEY
     }
 }
