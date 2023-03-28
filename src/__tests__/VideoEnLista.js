@@ -46,9 +46,11 @@ describe("VideoEnLista Tests", () => {
   });
 
   test("Should remove the video", async () => {
+    screen.debug()
     const btnDelete = screen.getByRole('button', {name: /eliminar video de la lista/i})
     await userEvent.click(btnDelete)
     expect(eliminarVideo).toBeCalled()
+    screen.debug()
   });
 
   

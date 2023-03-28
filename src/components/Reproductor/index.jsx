@@ -15,7 +15,6 @@ const Reproductor = ({reproductorData}) => {
         reproducirVideo} = reproductorData
 
   const[maximizar, setMaximizar] = useState(false);
-
     const indexActual = listaReproduccion.findIndex(el => el.id.videoId === videoEnReproduccion.id.videoId)
     const longitudLista = listaReproduccion.length
    
